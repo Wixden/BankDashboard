@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Bank Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              orangeDark: "#f2aa4cff",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container m-auto text-white my-5">
+      <!-- Header Section -->
+      <div class="border-cyan-300 border-2 my-5 px-5 rounded">
+        <!-- Navbar -->
+        <div class="flex p-5 justify-between">
+          <!-- Logo -->
+          <div class="logo w-20">
+            <img src="../../assets/images/logo.png" alt="" />
+          </div>
+          <!-- User Profile -->
+          <div class="flex gap-x-4 items-center">
+            <div class="flex items-center">
+              <img
+                src="../../assets/images/profile.png"
+                alt=""
+                class="w-14 mr-1"
+              />
+              <i class="fa-solid fa-chevron-down" style="font-size: 14px"></i>
+            </div>
+            <div>
+              <h6 class="font-semibold">Suzan Williams</h6>
+              <p class="text-sm text-gray-400">
+                <a href="login.html">Log Out</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="grid grid-cols-12 gap-5 pb-5">
+        <!-- left__side -->
+        <section
+          class="border-cyan-300 border-2 col-span-3 p-3 hidden md:block rounded"
+        >
+          <h4 class="text-center my-8">Welcome!</h4>
+          <!-- Left Menus -->
+          <!-- Menu -->
+          <div>
+            <!-- title -->
+            <h4 class="text-base font-semibold">Menu</h4>
+            <!-- this menu item will have margin left -->
+            <ul class="text-sm ml-3 mb-8">
+              <li class="my-3">
+                <a href="#">
+                  <i class="fa-solid fa-chart-line mr-3 w-4"></i>Dashboard</a
+                >
+              </li>
+              <li class="my-3">
+                <a href="#"
+                  ><i class="fa-regular fa-dollar-sign mr-3 w-4"></i>Balance</a
+                >
+              </li>
+              <li class="my-3">
+                <a href="#">
+                  <i class="fa-regular fa-percent mr-3 w-4"></i>Transaction</a
+                >
+              </li>
+              <li class="my-3">
+                <a href="#">
+                  <i class="fa-solid fa-hand-holding-dollar mr-3 w-4"></i
+                  >Withdrawal</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- User Information -->
+          <div>
+            <!-- Title -->
+            <h4 class="text-base font-semibold">User</h4>
+            <ul class="text-sm ml-3 mb-8">
+              <li class="my-3">
+                <a href="#">
+                  <i class="fa-regular fa-user mr-3 w-4"></i>Account</a
+                >
+              </li>
+              <li class="my-3">
+                <a href="#"><i class="fa-solid fa-users mr-3 w-4"></i>Team</a>
+              </li>
+              <li class="my-3">
+                <a href="#">
+                  <i class="fa-solid fa-percent mr-3 w-4"></i>Settings</a
+                >
+              </li>
+              <li class="my-3">
+                <a href="#">
+                  <i class="fa-solid fa-user-plus mr-3 w-4"></i>Invite</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Support -->
+          <div>
+            <!-- Title -->
+            <h4 class="text-base font-semibold">Support</h4>
+            <ul class="text-sm ml-3 mb-8">
+              <li class="my-3">
+                <a href="#">
+                  <i class="fa-solid fa-headset mr-3 w-4"></i>Support</a
+                >
+              </li>
+              <li class="my-3">
+                <a href="#"
+                  ><i class="fa-solid fa-flag mr-3 w-4"></i>Report Scam</a
+                >
+              </li>
+              <li class="my-3">
+                <a href="#"> Privacy Police</a>
+              </li>
+              <li class="my-3">
+                <a href="#"> Terms' & Conditions</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- right__side -->
+        <section
+          class="border-cyan-300 border-2 col-span-12 md:col-span-9 p-5 rounded"
+        >
+          <div class="grid lg:grid-cols-3 gap-5 md:grid-cols-2">
+            <div
+              class="bg-cyan-500 bg-opacity-20 backdrop-blur-sm border-cyan-500 p-10 border-2 rounded-lg"
+            >
+              <p class="text-2xl font-semibold">New Deposit</p>
+              <h2 id="depositdAmount" class="text-4xl font-bold mt-2">
+                $<span id="newDeposit">00</span>
+              </h2>
+            </div>
+            <div
+              class="bg-cyan-500 bg-opacity-5 backdrop-blur-sm border-cyan-500 p-10 border-2 rounded-lg"
+            >
+              <p class="text-2xl font-semibold">Withdrawal</p>
+              <h2 class="text-4xl font-bold mt-2">
+                $<span id="withdrawalAmount">00</span>
+              </h2>
+            </div>
+            <div
+              class="bg-cyan-500 bg-opacity-20 backdrop-blur-sm border-cyan-500 p-10 border-2 rounded-lg"
+            >
+              <p class="text-2xl font-semibold">Balance</p>
+              <h2 class="text-4xl font-bold mt-2">
+                $<span id="balance">25000</span>
+              </h2>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-5 grid-cols-1 mt-5">
+            <div
+              class="bg-cyan-500 bg-opacity-5 backdrop-blur-md border-cyan-500 p-10 border-2 rounded-lg"
+            >
+              <p class="text-2xl font-semibold mb-5">Add Money</p>
+              <input
+                type="number"
+                id="depositMoney"
+                class="my-2 py-3 px-5 rounded bg-white bg-opacity-0 border-cyan-300 border-2"
+                placeholder="Amount"
+                autocomplete="off"
+              />
+              <br />
+              <button
+                id="depositBtn"
+                class="bg-cyan-500 py-3 px-8 rounded font-semibold mt-2 hover:bg-cyan-400 duration-300"
+                type="submit"
+              >
+                Deposit
+              </button>
+            </div>
+            <div
+              class="bg-cyan-500 bg-opacity-5 backdrop-blur-md border-cyan-500 p-10 border-2 rounded-lg"
+            >
+              <p class="text-2xl font-semibold mb-5">Withdraw Money</p>
+              <input
+                type="number"
+                id="withdrawMoney"
+                class="my-2 py-3 px-5 rounded bg-white bg-opacity-0 border-cyan-300 border-2"
+                placeholder="Amount"
+                autocomplete="off"
+              />
+              <br />
+              <button
+                id="withdrawBtn"
+                class="bg-cyan-500 py-3 px-8 rounded font-semibold mt-2 hover:bg-cyan-400 duration-300"
+                type="submit"
+              >
+                Withdraw
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <!-- JS FILES -->
+    <script src="./app.js"></script>
+  </body>
+</html>
